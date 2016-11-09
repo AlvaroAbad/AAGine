@@ -13,5 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{24db8531-a314-4f86-a5ff-db4e58737724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\src">
+      <UniqueIdentifier>{4248fccc-a2dd-42ec-bbf3-26371df04358}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\include">
+      <UniqueIdentifier>{7e7b9825-854d-47b7-8f60-56a62128987f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Screen.h">
+      <Filter>Source Files\Engine\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Essentials.h">
+      <Filter>Source Files\Engine\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SmartPTR.h">
+      <Filter>Source Files\Engine\include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Screen.cpp">
+      <Filter>Source Files\Engine\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SmartPTR.cpp">
+      <Filter>Source Files\Engine\src</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
