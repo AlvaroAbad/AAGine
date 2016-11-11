@@ -143,13 +143,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\Array.h" />
     <ClInclude Include="..\include\Essentials.h" />
     <ClInclude Include="..\include\Screen.h" />
     <ClInclude Include="..\include\SmartPTR.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Array.cpp" />
     <ClCompile Include="..\src\Screen.cpp" />
-    <ClCompile Include="..\src\SmartPTR.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

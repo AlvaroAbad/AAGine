@@ -22,6 +22,15 @@
     <Filter Include="Source Files\Engine\include">
       <UniqueIdentifier>{7e7b9825-854d-47b7-8f60-56a62128987f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{6e14fb15-4c8a-40a8-81ac-cc11b581e058}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\src">
+      <UniqueIdentifier>{b90a52e3-741d-4101-ba95-5d4ab69b8ad1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\include">
+      <UniqueIdentifier>{88b55805-6677-4e6f-b4af-70c4e54f34bd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Screen.h">
@@ -31,15 +40,18 @@
       <Filter>Source Files\Engine\include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\SmartPTR.h">
-      <Filter>Source Files\Engine\include</Filter>
+      <Filter>Source Files\Utils\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Array.h">
+      <Filter>Source Files\Utils\include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Screen.cpp">
       <Filter>Source Files\Engine\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\SmartPTR.cpp">
-      <Filter>Source Files\Engine\src</Filter>
+    <ClCompile Include="..\src\Array.cpp">
+      <Filter>Source Files\Utils\src</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
