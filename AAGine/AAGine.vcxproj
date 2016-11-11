@@ -149,7 +149,6 @@
     <ClInclude Include="..\include\SmartPTR.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\Array.cpp" />
     <ClCompile Include="..\src\Screen.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

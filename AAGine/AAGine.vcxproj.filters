@@ -50,8 +50,5 @@
     <ClCompile Include="..\src\Screen.cpp">
       <Filter>Source Files\Engine\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Array.cpp">
-      <Filter>Source Files\Utils\src</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
