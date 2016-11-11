@@ -101,7 +101,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\coke_\Documents\AAGine\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\coke_\Documents\AAGine\Engine;C:\Users\coke_\Documents\AAGine\Utils;C:\Users\coke_\Documents\AAGine\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,13 +143,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\Array.h" />
-    <ClInclude Include="..\include\Essentials.h" />
-    <ClInclude Include="..\include\Screen.h" />
-    <ClInclude Include="..\include\SmartPTR.h" />
+    <ClInclude Include="..\Engine\include\Essentials.h" />
+    <ClInclude Include="..\Engine\include\Screen.h" />
+    <ClInclude Include="..\Utils\Array.h" />
+    <ClInclude Include="..\Utils\SmartPTR.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\Screen.cpp" />
+    <ClCompile Include="..\Engine\src\Screen.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

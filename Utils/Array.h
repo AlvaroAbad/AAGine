@@ -1,7 +1,7 @@
 #ifndef AAGINE_ARRAY_H
 #define AAGINE_ARRAY_H
 
-#include "Essentials.h"
+#include "include\Essentials.h"
 #define DEFAULT_SIZE 128
 template <typename T>
 class Array {
