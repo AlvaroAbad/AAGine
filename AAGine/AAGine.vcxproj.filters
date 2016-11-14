@@ -47,5 +47,8 @@
     <ClCompile Include="..\Engine\src\Screen.cpp">
       <Filter>Source Files\Engine\src</Filter>
     </ClCompile>
+    <ClCompile Include="Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
