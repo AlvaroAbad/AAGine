@@ -10,7 +10,7 @@ public:
 	Array(); // default constructor with predefined size
 	Array(uint32 size); // construct array with specified size
 	Array(Array<T>& other);
-	~Array() { delete[] m_buffer; }
+	~Array() { if(m_buffer) delete[] m_buffer; }
 
 	Array<T>& operator=(const Array<T>& other);
 

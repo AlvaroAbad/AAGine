@@ -10,6 +10,7 @@ private:
 };
 template<typename T>
 class PTR {
+public:
 	PTR(): m_Data(nullptr), m_Counter(nullptr) { m_Counter = new PTRReferences(); m_Counter->Inc(); }
 	PTR(T* p): m_Data(p), m_Counter(nullptr) { m_Counter = new PTRReferences(); m_Counter->Inc(); }
 	PTR(T* p, RC* r): m_Data(p), m_Counter(r) { m_Counter->Inc(); }
@@ -97,3 +98,7 @@ WPTR<Y> WPTR<T>::DownCast() {
 		return WPTR<Y>();
 }
 #endif // !AAGINE_SMARTPTR_H
+
+template<typename T>
+inline PTR<T>::PTR(const WPTR<T>& p): m_Data(p.m_Data), m_Counter(p.m_Counter) {
+}

@@ -11,6 +11,7 @@ typedef unsigned int uint32;
 typedef unsigned long long uint64;
 
 #include "glfw3.h"
+#include "SmartPTR.h"
 #include <algorithm>
 #include <cstddef>
 

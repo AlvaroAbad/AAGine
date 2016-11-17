@@ -1,6 +1,6 @@
-#include <conio.h>
+
 #include "Essentials.h"
-#include "Array.h"
+#include "AAArray.h"
 
 bool sortInt(int& first, int& second) {
 	return first > second;

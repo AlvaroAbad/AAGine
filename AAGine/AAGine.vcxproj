@@ -147,8 +147,9 @@
   <ItemGroup>
     <ClInclude Include="..\Engine\include\Essentials.h" />
     <ClInclude Include="..\Engine\include\Screen.h" />
-    <ClInclude Include="..\Utils\Array.h" />
+    <ClInclude Include="..\Utils\AAArray.h" />
     <ClInclude Include="..\Utils\SmartPTR.h" />
+    <ClInclude Include="..\Utils\AAString.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Engine\src\Screen.cpp" />

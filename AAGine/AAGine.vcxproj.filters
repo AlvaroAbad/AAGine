@@ -30,9 +30,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Utils\Array.h">
-      <Filter>Source Files\Utils\include</Filter>
-    </ClInclude>
     <ClInclude Include="..\Utils\SmartPTR.h">
       <Filter>Source Files\Utils\include</Filter>
     </ClInclude>
@@ -41,6 +38,12 @@
     </ClInclude>
     <ClInclude Include="..\Engine\include\Screen.h">
       <Filter>Source Files\Engine\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\AAString.h">
+      <Filter>Source Files\Utils\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\AAArray.h">
+      <Filter>Source Files\Utils\include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
