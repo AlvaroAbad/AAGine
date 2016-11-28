@@ -2,6 +2,7 @@
 #define AAGINE_SMARTPTR_H
 template<typename T> class WPTR;
 class PTRReferences {
+public:
 	PTRReferences():m_counter(0) {}
 	void Inc() { m_counter++; }
 	unsigned long Dec() { return --m_counter; }
@@ -13,7 +14,7 @@ class PTR {
 public:
 	PTR(): m_Data(nullptr), m_Counter(nullptr) { m_Counter = new PTRReferences(); m_Counter->Inc(); }
 	PTR(T* p): m_Data(p), m_Counter(nullptr) { m_Counter = new PTRReferences(); m_Counter->Inc(); }
-	PTR(T* p, RC* r): m_Data(p), m_Counter(r) { m_Counter->Inc(); }
+	PTR(T* p, PTRReferences* r): m_Data(p), m_Counter(r) { m_Counter->Inc(); }
 	PTR(const PTR<T>& p): m_Data(p.m_Data), m_Counter(p.m_Counter) { m_Counter->Inc(); }
 	PTR(const WPTR<T>& p);
 	~PTR() { if (m_Counter->Dec() == 0) { delete m_Data; delete m_Counter; } }

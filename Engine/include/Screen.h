@@ -1,15 +1,14 @@
 #ifndef AAGINE_SCREEN_H
 #define AAGINE_SCREEN_H
-#include "AAString.h"
 #include "Essentials.h"
 class Screen {
 public:
-	PTR<Screen> Instance();
+	static PTR<Screen> Instance();
 	void Open(uint16 width, uint16 height, bool fullscreen, bool vsync);
 	void Close();
-	void SetTitle(const String& title);
+	void SetTitle(const class String& title);
 	void Refresh();
-
+	bool ShouldWindowClose();
 	uint16 GetDesktopWidth() const;
 	uint16 GetDesktopHeight();
 protected:
@@ -23,6 +22,8 @@ private:
 	uint16 m_width, m_height;
 	int32 m_mouseX, m_mouseY;
 	float m_lastTime, m_elapsed;
+	bool m_mustClose;
+
 	friend class PTR<Screen>;
 	friend class PTR<const Screen>;
 

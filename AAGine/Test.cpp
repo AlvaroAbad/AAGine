@@ -1,12 +1,16 @@
 
-#include "Essentials.h"
-#include "AAArray.h"
 
+#include "AAArray.h"
+#include "AAString.h"
+
+#include "Screen.h"
+#define ENGINE_TEST_BENCH
 bool sortInt(int& first, int& second) {
 	return first > second;
 }
 
 int main() {
+#ifdef ARRAY_TEST_BENCH
 	Array<int> intArray(5);
 	intArray.Push(1);
 	intArray.Push(5);
@@ -24,7 +28,7 @@ int main() {
 	intArray.Push(35);
 
 	printf("TEST OF NEXT METHOD\n");
-	for (uint32 i = 0; i < intArray.Size()*2; i++) {
+	for (uint32 i = 0; i < intArray.Size() * 2; i++) {
 		printf("[%i]: %i\n", i, intArray.Next());
 	}
 	printf("TEST OF [] OVERRIDE\n");
@@ -35,7 +39,7 @@ int main() {
 	printf("TEST OF POPLAST AND LAST METHOD\n");
 	printf("Last: %i\n", intArray.Last());
 	int printableInt = intArray.PopLast();
-	printf("PopedLast: %i\n",printableInt);
+	printf("PopedLast: %i\n", printableInt);
 	for (uint32 i = 0; i < intArray.Size(); i++) {
 		printf("[%i]: %i\n", i, intArray.Next());
 	}
@@ -105,4 +109,18 @@ int main() {
 	}
 
 	getchar();
+#endif // !ARRAY_TEST_BENCH
+#ifdef ENGINE_TEST_BENCH
+
+	PTR<Screen> windowRef = Screen::Instance();
+	String titulo = "Prueba De titlulo";
+	windowRef->Open(800, 600, false, true);
+	windowRef->SetTitle(titulo);
+	while (!windowRef->ShouldWindowClose()) {
+		windowRef->Refresh();
+	}
+	windowRef->Close();
+#endif // ENGINE_TEST_BENCH
+
+
 }

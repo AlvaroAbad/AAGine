@@ -1,34 +1,32 @@
 #ifndef AAGINE_ARRAY_H
 #define AAGINE_ARRAY_H
-
-#include "Essentials.h"
 #define DEFAULT_SIZE 128
 template <typename T>
 /*Dynamic memory Array class that ensures compactancy*/
 class Array {
 public:
 	Array(); // default constructor with predefined size
-	Array(uint32 size); // construct array with specified size
+	Array(unsigned int size); // construct array with specified size
 	Array(Array<T>& other);
 	~Array() { if(m_buffer) delete[] m_buffer; }
 
 	Array<T>& operator=(const Array<T>& other);
 
 	//Adding elements
-	int32 Push(const T& element); // inserts element to the end of the array
-	void Set(uint32 index, T& element) { if(index<m_numElements) m_buffer[index] = element; } // substitutes element in position by given one
-	bool Insert(uint32 index, T& element); // inserts element to the specified position of the array and move all other elements
+	int Push(const T& element); // inserts element to the end of the array
+	void Set(unsigned int index, T& element) { if(index<m_numElements) m_buffer[index] = element; } // substitutes element in position by given one
+	bool Insert(unsigned int index, T& element); // inserts element to the specified position of the array and move all other elements
 
 	//Removing Elements
 	T PopLast(); // returns the last element and removes it from the array
 	T PopFirst(); // returns the first element of the array and removes it
 	bool Remove(T& element); // removes first apearence of the element given
-	bool RemoveAt(uint32 index); // removes element at position given
-	uint32 RemoveAll(T element); // removes all ocurencies of the element given
+	bool RemoveAt(unsigned int index); // removes element at position given
+	unsigned int RemoveAll(T element); // removes all ocurencies of the element given
 
 	//Accessing Elements
-	T& operator[](uint32 pos) { return m_buffer[pos]; } // directly access the element at the position of the array
-	const T& operator[](uint32 pos) const { return m_buffer[pos]; } // directly access the element at the position of the array
+	T& operator[](unsigned int pos) { return m_buffer[pos]; } // directly access the element at the position of the array
+	const T& operator[](unsigned int pos) const { return m_buffer[pos]; } // directly access the element at the position of the array
 	T& first() { return *m_buffer; } // returns the first element of the array
 	const T& first()const { return m_buffer; } // returns the first element of the array
 	T& Last() { return m_buffer[m_numElements - 1]; } // returns the last element of the array
@@ -37,16 +35,16 @@ public:
 	const T& Next() const; // retrives the next element of the array, returns to element 0 when last element returned
 
 	//Tools
-	uint32 Size() { return m_numElements; } // get the number of elements in the array
+	unsigned int Size() { return m_numElements; } // get the number of elements in the array
 	void Sort(bool(*compareFunct)(T&, T&));
 	void Clear();
 private:
-	bool Resize(uint32 newSize); // resizes array to specified size
+	bool Resize(unsigned int newSize); // resizes array to specified size
 
 	T* m_buffer;
-	uint32 m_size;
-	uint32 m_numElements;
-	uint32 m_nextElement;
+	unsigned int m_size;
+	unsigned int m_numElements;
+	unsigned int m_nextElement;
 };
 
 template<typename T>
@@ -55,7 +53,7 @@ Array<T>::Array():m_size(DEFAULT_SIZE), m_numElements(0), m_nextElement(0) {
 }
 
 template<typename T>
-Array<T>::Array(uint32 size) : m_size(size), m_numElements(0), m_nextElement(0) {
+Array<T>::Array(unsigned int size) : m_size(size), m_numElements(0), m_nextElement(0) {
 	if (size > 0) {
 		m_buffer =new T[size];
 	} else {
@@ -88,14 +86,14 @@ Array<T>& Array<T>::operator=(const Array<T>& other) {
 }
 
 template<typename T>
-int32 Array<T>::Push(const T & element) {
+int Array<T>::Push(const T & element) {
 	bool ret = true;
 	if (m_numElements == m_size) {
 		ret = Resize(m_size + DEFAULT_SIZE);
 	}
 	if (ret) {
 		m_buffer[m_numElements++] = element;
-		return static_cast<int32>(m_numElements);
+		return static_cast<int>(m_numElements);
 	} else {
 		return -1;
 	}
@@ -103,7 +101,7 @@ int32 Array<T>::Push(const T & element) {
 }
 
 template<typename T>
-bool Array<T>::Insert(uint32 index, T & element) {
+bool Array<T>::Insert(unsigned int index, T & element) {
 	bool ret = false;
 	if (index <= m_numElements) {
 		ret = true;
@@ -145,7 +143,7 @@ inline T Array<T>::PopFirst() {
 template<typename T>
 bool Array<T>::Remove(T& element) {
 	bool ret = false;
-	uint32 index = 0;
+	unsigned int index = 0;
 	do {
 		if (m_buffer[index++] == element) {
 			for (size_t i = index; i < m_numElements; i++) {
@@ -159,7 +157,7 @@ bool Array<T>::Remove(T& element) {
 }
 
 template<typename T>
-bool Array<T>::RemoveAt(uint32 index) {
+bool Array<T>::RemoveAt(unsigned int index) {
 	if (index < m_numElements) {
 		for (size_t i = index + 1; i < m_numElements; i++) {
 			m_buffer[i - 1] = m_buffer[i];
@@ -172,8 +170,8 @@ bool Array<T>::RemoveAt(uint32 index) {
 }
 
 template<typename T>
-uint32 Array<T>::RemoveAll(T element) {
-	uint32 removedElements = 0;
+unsigned int Array<T>::RemoveAll(T element) {
+	unsigned int removedElements = 0;
 	for (size_t i = 1; i < m_numElements; i++) {
 		if (m_buffer[i] == element) {
 			for (size_t j = i + 1; j < m_numElements; j++) {
@@ -191,7 +189,7 @@ template<typename T>
 T & Array<T>::Next() {
 
 	(m_nextElement >= m_numElements ? m_nextElement = 0: 0);
-	uint32 retElement = m_nextElement++;
+	unsigned int retElement = m_nextElement++;
 	return m_buffer[retElement];
 }
 
@@ -207,7 +205,7 @@ template<typename T>
 void Array<T>::Sort(bool(*compareFunct)(T &, T &)) {
 	if (m_numElements > 1) {
 		Array<T> lesser, greater;
-		uint32 pivotIndex = m_numElements / 2;
+		unsigned int pivotIndex = m_numElements / 2;
 		T pivot = m_buffer[pivotIndex];
 		for (size_t i = 0; i < m_numElements; i++) {
 			if (i != pivotIndex) {
@@ -221,14 +219,14 @@ void Array<T>::Sort(bool(*compareFunct)(T &, T &)) {
 		Clear();
 		if (lesser.Size()) {
 			lesser.Sort(compareFunct);
-			for (uint32 i = 0; i < lesser.m_numElements; i++) {
+			for (unsigned int i = 0; i < lesser.m_numElements; i++) {
 				Push(lesser[i]);
 			}
 		}
 		Push(pivot);
 		if (greater.Size()) {
 			greater.Sort(compareFunct);
-			for (uint32 i = 0; i < greater.m_numElements; i++) {
+			for (unsigned int i = 0; i < greater.m_numElements; i++) {
 				Push(greater[i]);
 			}
 		}
@@ -242,7 +240,7 @@ void Array<T>::Clear() {
 }
 
 template<typename T>
-bool Array<T>::Resize(uint32 newSize) {
+bool Array<T>::Resize(unsigned int newSize) {
 	T* oldBuffer = m_buffer;
 	m_buffer = new T[newSize];
 	m_size = newSize;

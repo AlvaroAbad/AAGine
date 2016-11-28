@@ -1,5 +1,5 @@
 #include "..\include\Screen.h"
-
+#include "AAString.h"
 PTR<Screen> Screen::m_instance = nullptr;
 
 PTR<Screen> Screen::Instance() {
@@ -50,6 +50,10 @@ void Screen::Refresh() {
 	m_lastTime = glfwGetTime();
 }
 
+bool Screen::ShouldWindowClose() {
+	return glfwWindowShouldClose(m_window);
+}
+
 uint16 Screen::GetDesktopWidth() const{
 	const GLFWvidmode* mode= glfwGetVideoMode(glfwGetPrimaryMonitor());
 	return uint16(mode->width);
@@ -79,5 +83,5 @@ Screen::~Screen() {
 }
 
 void Screen::CloseCallback(GLFWwindow * window) {
-	glfwSetWindowShouldClose(window, GLFW_FALSE);
+	glfwSetWindowShouldClose(window, GLFW_TRUE);
 }

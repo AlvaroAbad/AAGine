@@ -45,6 +45,9 @@
     <ClInclude Include="..\Utils\AAArray.h">
       <Filter>Source Files\Utils\include</Filter>
     </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Engine\src\Screen.cpp">
